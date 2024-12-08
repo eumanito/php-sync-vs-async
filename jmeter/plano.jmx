@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Plano">
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="url" elementType="Argument">
+            <stringProp name="Argument.name">url</stringProp>
+            <stringProp name="Argument.value">http://54.84.46.248/</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="contentType" elementType="Argument">
+            <stringProp name="Argument.name">contentType</stringProp>
+            <stringProp name="Argument.value">application/json</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="method" elementType="Argument">
+            <stringProp name="Argument.name">method</stringProp>
+            <stringProp name="Argument.value">POST</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+        <intProp name="ThreadGroup.num_threads">6610</intProp>
+        <intProp name="ThreadGroup.ramp_time">430</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request">
+          <stringProp name="HTTPSampler.path">${url}</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;nome&quot;: &quot;Jailson Maciel da Luz&quot;,&#xd;
+    &quot;endereco&quot;: &quot;Rua Exemplo, 123, Bairro Central, Cidade, Estado&quot;,&#xd;
+    &quot;email&quot;: &quot;jailson.exemplo@email.com&quot;,&#xd;
+    &quot;telefone&quot;: &quot;(51) 98765-4321&quot;,&#xd;
+    &quot;empresa&quot;: &quot;Empresa Exemplo Ltda&quot;,&#xd;
+    &quot;descricao&quot;: &quot;Este campo contém uma descrição longa para preencher o tamanho do payload necessário. A descrição deve continuar até atingir o tamanho adequado para garantir que o payload tenha aproximadamente 12,7 KB.&quot;,&#xd;
+    &quot;produto&quot;: {&#xd;
+        &quot;id&quot;: 12345,&#xd;
+        &quot;nome&quot;: &quot;Produto Exemplo&quot;,&#xd;
+        &quot;quantidade&quot;: 50,&#xd;
+        &quot;preco_unitario&quot;: 499.99,&#xd;
+        &quot;categoria&quot;: &quot;Tecnologia&quot;,&#xd;
+        &quot;descricao_detalhada&quot;: &quot;A descrição detalhada do produto vai preencher ainda mais espaço para garantir que o payload totalize o tamanho necessário de 12,7KB. Informações adicionais sobre o produto como especificações, uso e outros detalhes serão descritos aqui. Este texto continua a preencher o espaço disponível.&quot;&#xd;
+    },&#xd;
+    &quot;transacao&quot;: {&#xd;
+        &quot;id&quot;: 54321,&#xd;
+        &quot;tipo&quot;: &quot;venda&quot;,&#xd;
+        &quot;valor_total&quot;: 24999.50,&#xd;
+        &quot;data&quot;: &quot;2024-10-13T10:00:00&quot;,&#xd;
+        &quot;status&quot;: &quot;finalizada&quot;,&#xd;
+        &quot;pagamento&quot;: {&#xd;
+            &quot;metodo&quot;: &quot;cartao de credito&quot;,&#xd;
+            &quot;parcelas&quot;: 12,&#xd;
+            &quot;valor_parcela&quot;: 2083.29,&#xd;
+            &quot;bandeira&quot;: &quot;Visa&quot;,&#xd;
+            &quot;titular_cartao&quot;: &quot;Jailson Maciel&quot;&#xd;
+        }&#xd;
+    },&#xd;
+    &quot;mensagem_adicional&quot;: &quot;Aqui podemos adicionar uma mensagem extra para garantir que o payload alcance o tamanho necessário. Esse campo pode ser utilizado para informações como observações ou detalhes adicionais relacionados à transação.&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">${contentType}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">/home/summary-report.csv</stringProp>
+          <boolProp name="useGroupName">true</boolProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

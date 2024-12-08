@@ -1,0 +1,20 @@
+version: '3'
+services:
+  php-sync:
+    build: 
+      context: .
+      dockerfile: Dockerfile  
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/var/www/html
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: database-1.cluster-cniuugikualy.us-east-1.rds.amazonaws.com
+      PMA_USER: admin
+      PMA_PASSWORD: SeuMadruga123
+    ports:
+      - "8081:80"
