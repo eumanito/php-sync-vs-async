@@ -37,20 +37,28 @@ Ao executar uma requisição GET em http://localhost:8080 a aplicação irá cri
 
 ### 5. Teste de Carga
 Para criar e executar os testes de carga, foi utilizado o [Apache JMeter](https://jmeter.apache.org/). A seguir, inclua as ferramentas sugeridas no JMeter para o execução e análise.
-#### 5.1 Configurando JMeter
-5.1.1 Acesse o menu Arquivo > Templates e selecione `Simple HTTP request`
 
-5.1.2 Acesse o menu Editar > Adicionar > Elemento de Configuração > `Variáveis Definidas pelo Usuário`
+#### 5.1. Configurando JMeter
+- Acesse o menu Arquivo > Templates e selecione `Simple HTTP request`
+- Acesse o menu Editar > Adicionar > Elemento de Configuração > `Variáveis Definidas pelo Usuário`
+- Defina as variáveis: 
+    - URL: http://localhost:8080
+    - Method: GET
+- Acesse o menu Editar > Adicionar > Ouvinte > `Ver Árvore de Resultados`
+- Acesse o menu Editar > Adicionar > Ouvinte > `Relatório de Sumário`
+- Acesse o menu Editar > Adicionar > Threads (User) > `Grupo de Usuários`
+- Defina a variável:
+    - Número de usuários virtuais (threads): 100
 
-Defina as variáveis: 
-- URL: http://localhost:8080
-- Method: GET
+### 5.2. Ou utilize o plano criado
+- Acesse o menu Arquivo > Abrir
+- Selecione o arquivo `plano.jmx` (esta na pasta [jmeter](https://github.com/eumanito/php-sync-vs-async/tree/main/jmeter))
 
-5.1.3 Acesse o menu Editar > Adicionar > Ouvinte > `Ver Árvore de Resultados`
+### 6. Extras
+Para análise estatística foi utilizado o R, com os métodos ANOVA (Análise de Variância e Test t).
+Na pasta [R](https://github.com/eumanito/php-sync-vs-async/tree/main/R)  deste repositório estão os algoritmos utilizados.
 
-5.1.4 Acesse o menu Editar > Adicionar > Ouvinte > `Relatório de Sumário`
+Na pasta [cpu-monitor](https://github.com/eumanito/php-sync-vs-async/tree/main/cpu-monitor) alguns scripts para monitoramento de CPU. Estes não foram utilizados para esta análise, mas deixei compartilhado para análises futuras.
 
-5.1.5 Acesse o menu Editar > Adicionar > Threads (User) > `Grupo de Usuários`
-
-Defina a variável:
-- Número de usuários virtuais (threads): 100
+### 7. Artigo
+Todo o material aqui contido fez parte do desenvolvimento do [artigo](https://github.com/eumanito/php-sync-vs-async/tree/main/resultados/Artigo.pdf) para o meu trabalho de conclusão de curso (TCC). 
